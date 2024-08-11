@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 
-import Posts from '@/components/posts';
+import Posts, { Post } from '@/components/posts';
 import { getPosts } from '@/lib/posts';
 
 async function LatestPosts() {
   const latestPosts = await getPosts(2);
-  return <Posts posts={latestPosts} />;
+  return <Posts posts={latestPosts as Post[]} />;
 }
 
 export default async function Home() {
